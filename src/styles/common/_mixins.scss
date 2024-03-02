@@ -1,0 +1,11 @@
+@mixin container($width: 1100px) {
+  max-width: $width + 30px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+@mixin visibility() {
+  display: none;
+  font-size: 18px;
+  font-weight: 500;
+}
