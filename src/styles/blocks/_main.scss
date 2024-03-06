@@ -2,6 +2,8 @@
   @include container();
 }
 
+//#2df7dd
+
 .wrap {
   display: flex;
   flex-direction: column;
@@ -11,155 +13,90 @@
   height: 100vh;
 }
 
-.pic {
-  flex-basis: 30%;
-  margin-bottom: 50px;
-  max-width: 200px;
-}
-
-.pic-img-welcome, .pic-img-que, .pic-img-true, .pic-img-false {
-  display: none;
-}
-
-.welcome-box {
-  @include visibility();
-  font-size: 26px;
-  font-weight: 600;
-  text-align: center;
-  text-shadow: 0 0 3px #222225;
-
-  p {
-    margin-bottom: 30px;
-  }
-}
-
-.go-btn {
-  display: inline-block;
-  padding: 10px 35px;
-  font-family: inherit;
-  font-size: 18px;
-  font-weight: 500;
-  color: #222225;
+.quiz {
+  position: relative;
+  padding: 50px;
+  width: 700px;
+  max-width: 90vw;
   background-color: #fff;
-  border: 2px solid #fff;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all .2s 0s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  border-radius: 10px;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, .1);
+  overflow: hidden;
 
-  &:hover {
-    color: #fff;
-    background: transparent;
-  }
-}
-
-.que-1, .que-2, .que-3, .que-4, .que-5, .que-6, .que-7, .que-8, .que-9, .que-10 {
-  @include visibility();
-  margin-bottom: 50px;
-  font-size: 26px;
-  font-weight: 600;
-  text-align: center;
-  text-shadow: 0 0 3px #222225;
-}
-
-.input-box {
-  @include visibility();
-}
-
-.input-box-wrap {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-width: 250px;
-}
-
-.input-answer {
-  margin-bottom: 15px;
-  padding: 10px 20px;
-  width: 100%;
-  font-family: inherit;
-  font-size: 16px;
-  font-weight: 500;
-  color: #222225;
-  border: 2px solid rgba($color: #222225, $alpha: .5);
-  border-radius: 100px;
-
-  &::placeholder {
-    color: rgba($color: #222225, $alpha: .5);
-    font-weight: 600;
+  .title {
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #222225;
     text-align: center;
   }
 
+  .summary {
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 400;
+    color: #222225;
+    text-align: center;
+  }
+
+  .result {
+    font-size: 20px;
+    font-weight: 700;
+    color: #222225;
+    text-align: center;
+  }
+}
+
+.quiz-list {
+  padding: 0;
+  list-style-type: none;
+
+  li {
+    font-size: 18px;
+    color: #222225;
+  }
+
+  label {
+    display: block;
+    padding: 20px 10px;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.2s 0s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+
+    input[type="radio"] {
+      margin-right: 10px;
+    }
+
+    &:hover {
+      background-color: rgba(45,247,221,.2);
+      border-radius: 10px;
+    }
+  }
+}
+
+.quiz-submit {
+  display: block;
+  align-items: center;
+  margin: 50px auto 0 auto;
+  padding: 15px 35px;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  background-color: #667eea;
+  background: linear-gradient(90deg, rgba(156,108,255,1) 20%, rgba(45,247,221,1) 100%);
+  opacity: .5;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s 0s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+
+  &:hover {
+    opacity: 1;
+  }
+
   &:focus {
+    opacity: 1;
     outline: none;
   }
 }
 
-.input-btn {
-  padding: 10px 15px;
-  width: 100%;
-  font-family: inherit;
-  font-size: 16px;
-  font-weight: 600;
-  color: #fff;
-  background: transparent;
-  border: 2px solid #fff;
-  border-radius: 50px;
-  text-align: center;
-  cursor: pointer;
-  transition: all .2s 0s cubic-bezier(0.46, 0.03, 0.52, 0.96);
-
-  &:hover {
-    color: #222225;
-    background-color: #fff;
-  }
-}
-
-.output-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.output-answer {
-  @include visibility();
-  margin-bottom: 50px;
-  font-size: 26px;
-  font-weight: 600;
-  text-align: center;
-  text-shadow: 0 0 3px #222225;
-}
-
-.output-result {
-  @include visibility();
-  font-size: 26px;
-  font-weight: 600;
-  text-align: center;
-  text-shadow: 0 0 3px #222225;
-}
-
-.next-btn, .result-btn {
-  @include visibility();
-  padding: 10px 35px;
-  max-width: 250px;
-  font-family: inherit;
-  font-size: 16px;
-  font-weight: 600;
-  color: #fff;
-  background: transparent;
-  border: 2px solid #fff;
-  border-radius: 50px;
-  text-align: center;
-  cursor: pointer;
-  transition: all .2s 0s cubic-bezier(0.46, 0.03, 0.52, 0.96);
-
-  &:hover {
-    color: #222225;
-    background-color: #fff;
-  }
-}
-
-.active {
-  display: block;
-}
