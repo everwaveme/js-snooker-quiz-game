@@ -218,11 +218,9 @@ function clearPage() {
 
 //отображаем текущий вопрос
 function showQuestion() {
-  console.log('showQuestion');
 
   //шаблон для заголовка
   const headerTemplate = `<h2 class="title">%title%</h2>`;
-
   //меняем %title% на вопрос
   const title = headerTemplate.replace('%title%', questions[questionIndex]['question']);
 
@@ -230,11 +228,17 @@ function showQuestion() {
   headerContainer.innerHTML = title;
 
   //выводим варианты ответа через цикл обхода
-  for (item of questions[questionIndex]['answers']) {
-    console.log(item);
+  for (answerText of questions[questionIndex]['answers']) {
+    const questionTemplate =
+      `<li>
+        <label>
+          <input type="radio" class="answer" name="answer">
+          <span>%answer%</span>
+        </label>
+      </li>`;
+    const answerHTML = questionTemplate.replace('%answer%', answerText);
+    listContainer.innerHTML += answerHTML;
   }
-
-
 
 
 }
