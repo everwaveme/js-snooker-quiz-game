@@ -218,5 +218,23 @@ function clearPage() {
 
 //отображаем текущий вопрос
 function showQuestion() {
-  console.log(questions[questionIndex]['question']);
+  console.log('showQuestion');
+
+  //шаблон для заголовка
+  const headerTemplate = `<h2 class="title">%title%</h2>`;
+
+  //меняем %title% на вопрос
+  const title = headerTemplate.replace('%title%', questions[questionIndex]['question']);
+
+  //отображаем вопрос на странице
+  headerContainer.innerHTML = title;
+
+  //выводим варианты ответа через цикл обхода
+  for (item of questions[questionIndex]['answers']) {
+    console.log(item);
+  }
+
+
+
+
 }
