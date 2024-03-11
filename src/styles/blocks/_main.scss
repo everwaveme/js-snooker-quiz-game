@@ -63,6 +63,11 @@
 
     input[type="radio"] {
       margin-right: 10px;
+
+      // &:checked{
+      //   opacity: ;
+
+      // }
     }
 
     &:hover {
@@ -90,12 +95,16 @@
   transition: all 0.2s 0s cubic-bezier(0.46, 0.03, 0.52, 0.96);
 
   &:hover {
-    opacity: 1;
+    opacity: .8;
   }
 
   &:focus {
-    opacity: 1;
+    opacity: .8;
     outline: none;
   }
+}
+
+.active {
+  opacity: 1;
 }
 

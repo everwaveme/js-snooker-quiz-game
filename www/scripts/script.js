@@ -210,6 +210,7 @@ let questionIndex = 0;
 
 clearPage(); //очистка html разметки
 showQuestion(); //запускаем вопросы
+submitBtn.onclick = checkAnswer;
 
 function clearPage() {
   headerContainer.innerHTML = '';
@@ -218,27 +219,44 @@ function clearPage() {
 
 //отображаем текущий вопрос
 function showQuestion() {
-
-  //шаблон для заголовка
   const headerTemplate = `<h2 class="title">%title%</h2>`;
-  //меняем %title% на вопрос
   const title = headerTemplate.replace('%title%', questions[questionIndex]['question']);
-
-  //отображаем вопрос на странице
   headerContainer.innerHTML = title;
 
   //выводим варианты ответа через цикл обхода
+  let answerNumber = 1;
   for (answerText of questions[questionIndex]['answers']) {
     const questionTemplate =
       `<li>
         <label>
-          <input type="radio" class="answer" name="answer">
+          <input type="radio" class="answer" name="answer" value="%number%">
           <span>%answer%</span>
         </label>
       </li>`;
-    const answerHTML = questionTemplate.replace('%answer%', answerText);
+    let answerHTML = questionTemplate.replace('%answer%', answerText);
+    answerHTML = answerHTML.replace('%number%', answerNumber);
+
     listContainer.innerHTML += answerHTML;
+    answerNumber++;
+  }
+}
+
+function checkAnswer() {
+  //находим выбранную радио-кнопку
+  const checkedRadio = listContainer.querySelector('input[type="radio"]:checked');
+  console.log(checkedRadio);
+
+  //если ответ не выбран, то функция прекращается
+  if (!checkedRadio) {
+    submitBtn.blur();
+    return
   }
 
+  //получаем номер ответа от пользователя
+  const userAnswer = parseInt(checkedRadio.value);
 
+  //если ответ верен - score++
+  if (userAnswer === questions[questionIndex]['correct']) {
+
+  }
 }
