@@ -22,23 +22,28 @@
   box-shadow: 0 0 5px 5px rgba(0, 0, 0, .1);
   overflow: hidden;
 
+  .pic {
+    margin: 0 auto 40px auto;
+    max-width: 200px;
+  }
+
   .title {
-    margin-bottom: 40px;
+    margin-bottom: 25px;
     font-size: 22px;
     color: #222225;
     text-align: center;
   }
 
-  .summary {
-    margin-bottom: 20px;
-    font-size: 20px;
+  .message {
+    margin-bottom: 25px;
+    font-size: 18px;
     font-weight: 400;
     color: #222225;
     text-align: center;
   }
 
   .result {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
     color: #222225;
     text-align: center;
@@ -63,11 +68,6 @@
 
     input[type="radio"] {
       margin-right: 10px;
-
-      // &:checked{
-      //   opacity: ;
-
-      // }
     }
 
     &:hover {
@@ -80,15 +80,15 @@
 .quiz-submit {
   display: block;
   align-items: center;
+  min-width: 50%;
   margin: 50px auto 0 auto;
   padding: 15px 30px;
   font-family: inherit;
   font-size: 18px;
   font-weight: 700;
   color: #fff;
-  background-color: #667eea;
   background: linear-gradient(90deg, rgba(156,108,255,1) 20%, rgba(45,247,221,1) 100%);
-  opacity: .5;
+  opacity: 1;
   border-radius: 10px;
   border: none;
   cursor: pointer;
@@ -96,15 +96,7 @@
 
   &:hover {
     opacity: .8;
+    transform: translate(0, -2px);
   }
-
-  &:focus {
-    opacity: .8;
-    outline: none;
-  }
-}
-
-.active {
-  opacity: 1;
 }
 
