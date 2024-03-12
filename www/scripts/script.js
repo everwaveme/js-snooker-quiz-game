@@ -208,9 +208,32 @@ const submitBtn = document.querySelector('#submit');
 let score = 0;
 let questionIndex = 0;
 
-clearPage(); //очистка html разметки
-showQuestion(); //запускаем вопросы
-submitBtn.onclick = checkAnswer;
+welcomePage();
+submitBtn.onclick = startGame;
+
+function welcomePage() {
+  const welcomeTemplate = `
+    <div class="pic rotate">%pic%</div>
+    <h2 class="title">%title%</h2>
+    <p class="subtitle">%subtitle%</p>
+  `;
+  const welcomePic = `<img src="images/ded-1.png">`;
+  const welcomeTitle = 'Добро пожаловать в квиз о снукере!🤩';
+  const welcomeSubtitle = 'Ответьте правильно на все 20 вопросов и сделайте Ронни О\'Салливана восьмикратным чемпионом мира!🏆';
+  const welcomeMessage = welcomeTemplate.replace('%pic%', welcomePic)
+                                        .replace('%title%', welcomeTitle)
+                                        .replace('%subtitle%', welcomeSubtitle);
+
+  headerContainer.innerHTML = welcomeMessage;
+  submitBtn.innerText = 'Начать игру!';
+}
+
+function startGame() {
+  clearPage(); //очистка html разметки
+  showQuestion(); //запускаем вопросы
+  submitBtn.innerText = 'Ответить';
+  submitBtn.onclick = checkAnswer;
+}
 
 function clearPage() {
   headerContainer.innerHTML = '';
@@ -233,8 +256,8 @@ function showQuestion() {
           <span>%answer%</span>
         </label>
       </li>`;
-    let answerHTML = questionTemplate.replace('%answer%', answerText);
-    answerHTML = answerHTML.replace('%number%', answerNumber);
+    let answerHTML = questionTemplate.replace('%answer%', answerText)
+                                     .replace('%number%', answerNumber);
 
     listContainer.innerHTML += answerHTML;
     answerNumber++;
@@ -263,18 +286,15 @@ function checkAnswer() {
     questionIndex++;
     clearPage();
     showQuestion();
-    // return;
-
   } else {
     clearPage();
     showResults();
-
   }
 }
 
 function showResults() {
   const resultsTemplate = `
-      <div class="pic">%pic%</div>
+      <div class="pic scale">%pic%</div>
       <h2 class="title">%title%</h2>
       <h3 class="message">%message%</h3>
       <p class="result">%result%</p>
@@ -284,8 +304,8 @@ function showResults() {
   //Варианты заголовков и текстов при разном score
   if (score === questions.length) {
     pic = `<img src="images/ded-2.png">`;
-    title = 'Поздравляем!🔥';
-    message = 'Да вы настоящий знаток снукера!🤓';
+    title = 'Да вы настоящий знаток снукера!🤓';
+    message = 'Благодаря вам Ронни стал восьмикратным чемпионом мира!';
   } else if ((score * 100) / questions.length >= 50) {
     pic = `<img src="images/ded-3.png">`;
     title = 'Вы хорошо разбираетесь в снукере!👌';
@@ -296,14 +316,14 @@ function showResults() {
     message = 'Вы ответили правильно меньше, чем наполовину вопросов...';
   }
 
-  //счетчит результата
+  //счетчик результата
   let result = `Правильных ответов: ${score} из ${questions.length}`;
 
   //подставляем данные в resultsTemplate
   const finalMessage = resultsTemplate.replace('%pic%', pic)
                         .replace('%title%', title)
                         .replace('%message%', message)
-                        .replace('%result%', result)
+                        .replace('%result%', result);
 
   headerContainer.innerHTML = finalMessage;
 

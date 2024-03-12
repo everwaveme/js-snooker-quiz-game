@@ -2,8 +2,6 @@
   @include container();
 }
 
-//#2df7dd
-
 .wrap {
   display: flex;
   flex-direction: column;
@@ -25,11 +23,45 @@
   .pic {
     margin: 0 auto 40px auto;
     max-width: 200px;
+
+    &.rotate {
+      animation: dedRotate .7s linear alternate infinite;
+
+      @keyframes dedRotate {
+        from{
+         transform: rotate(10deg);
+        }
+        to{
+          transform: rotate(-10deg);
+        }
+      }
+    }
+
+    &.scale {
+      animation: dedScale .5s linear alternate infinite;
+
+      @keyframes dedScale {
+        from{
+         transform: scale(1);
+        }
+        to{
+          transform: scale(1.1);
+        }
+      }
+    }
   }
 
   .title {
     margin-bottom: 25px;
     font-size: 22px;
+    color: #222225;
+    text-align: center;
+  }
+
+  .subtitle {
+    margin-bottom: 25px;
+    font-size: 18px;
+    font-weight: 400;
     color: #222225;
     text-align: center;
   }
