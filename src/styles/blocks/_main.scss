@@ -1,6 +1,5 @@
 .container {
   @include container();
-  position: relative;
 }
 
 .wrap {
@@ -8,20 +7,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 80px 0;
+  padding: 60px 0;
   height: 100vh;
-
-  @media (max-width: $tablet-max) {
-    padding: 70px 0;
-  }
-
-  @media (max-width: $mobile-max) {
-    padding: 60px 0;
-  }
 }
 
 .quiz {
-  padding: 70px;
+  padding: 50px;
   width: 700px;
   max-width: 90vw;
   background-color: #fff;
@@ -30,7 +21,7 @@
   overflow: hidden;
 
   @media (max-width: $tablet-max) {
-    padding: 50px;
+    padding: 40px;
   }
 
   @media (max-width: $mobile-max) {
@@ -38,11 +29,10 @@
   }
 
   .pic {
-    margin: 0 auto 40px auto;
+    margin: 0 auto 30px auto;
     max-width: 200px;
 
     @media (max-width: $mobile-max) {
-      margin: 0 auto 30px auto;
       max-width: 150px;
     }
 
@@ -74,7 +64,7 @@
   }
 
   .title {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     font-size: 22px;
     color: #222225;
     text-align: center;
@@ -85,7 +75,7 @@
   }
 
   .subtitle {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     font-size: 18px;
     font-weight: 400;
     line-height: 27px;
@@ -98,7 +88,7 @@
   }
 
   .message {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     font-size: 18px;
     font-weight: 400;
     color: #222225;
@@ -156,11 +146,11 @@
 .quiz-submit {
   display: block;
   align-items: center;
-  min-width: 50%;
-  margin: 50px auto 0 auto;
-  padding: 15px 30px;
+  min-width: 30%;
+  margin: 40px auto 0 auto;
+  padding: 12px 20px;
   font-family: inherit;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: #fff;
   background: linear-gradient(90deg, rgba(156,108,255,1) 20%, rgba(45,247,221,1) 100%);
@@ -175,15 +165,8 @@
     transform: translate(0, -2px);
   }
 
-  @media (max-width: $tablet-max) {
-    min-width: 40%;
-    padding: 15px 25px;
-  }
-
   @media (max-width: $mobile-max) {
-    margin: 40px auto 0 auto;
     padding: 12px 25px;
-    font-size: 16px;
   }
 }
 
